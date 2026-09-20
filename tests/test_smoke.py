@@ -3,12 +3,9 @@
 from __future__ import annotations
 
 import importlib
-import sys
-from pathlib import Path
 
 
 def test_module_imports():
-    sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
     mod = importlib.import_module("plugin.plugins.neko_done_bridge")
     assert hasattr(mod, "NekoDoneBridgePlugin")
     assert hasattr(mod, "_diff_tasks")
