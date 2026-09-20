@@ -15,6 +15,6 @@ jobs:
   release:
     uses: Project-N-E-K-O/N.E.K.O/.github/workflows/plugin-market-release.yml@main
     with:
-      plugin-id: neko_live_album
+      plugin-id: neko_done_bridge
       neko-repository: Project-N-E-K-O/N.E.K.O
       neko-ref: main
