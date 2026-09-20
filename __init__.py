@@ -24,11 +24,9 @@ import os
 import sqlite3
 import threading
 import time
-from http.server import HTTPServer
+from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
 from typing import Any, Dict, List, Optional
-
-from http.server import BaseHTTPRequestHandler
 
 from plugin.sdk.plugin import (
     Err,
