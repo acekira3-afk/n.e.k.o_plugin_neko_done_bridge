@@ -257,11 +257,6 @@ class NekoDoneBridgePlugin(NekoPluginBase):
 
     def __init__(self, ctx: Any):
         super().__init__(ctx)
-        try:
-            self.file_logger = self.enable_file_logging(log_level="INFO")
-            self.logger = self.file_logger
-        except Exception:
-            self.logger = ctx.logger
         self._http_server: Optional[HTTPServer] = None
         self._http_thread: Optional[threading.Thread] = None
         self._port: int = _DEFAULT_PORT
@@ -562,10 +557,7 @@ class NekoDoneBridgePlugin(NekoPluginBase):
 
     def _notify(self, text: str, event: Dict[str, Any]):
         try:
-            if not hasattr(self.ctx, "push_message"):
-                self.logger.error("ctx has no push_message method")
-                return
-            self.ctx.push_message(
+            self.push_message(
                 source="neko_done_bridge",
                 visibility=["chat"],
                 ai_behavior="respond",
